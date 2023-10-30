@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"github.com/joho/godotenv"
+	"github.com/ty-e-boyd/gartholomew-gobot/bin/scrapers"
 	"log"
 	"os"
 	"os/signal"
@@ -18,7 +19,6 @@ func init() {
 }
 
 func main() {
-
 	// Create a new Discord session using the provided bot token.
 	dg, err := discordgo.New("Bot " + os.Getenv("BOT_TOKEN"))
 	if err != nil {
@@ -59,6 +59,13 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 	if m.Content == "!testcon" {
 		_, err := s.ChannelMessageSend(m.ChannelID, "This is a test message.")
+		if err != nil {
+			fmt.Println(err)
+		}
+	}
+
+	if m.Content == "!whereisxur" {
+		_, err := s.ChannelMessageSend(m.ChannelID, scrapers.ScrapeXur())
 		if err != nil {
 			fmt.Println(err)
 		}
