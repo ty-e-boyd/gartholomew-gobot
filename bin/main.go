@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/bwmarrin/discordgo"
-	"github.com/joho/godotenv"
-	"github.com/ty-e-boyd/gartholomew-gobot/bin/scrapers"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/bwmarrin/discordgo"
+	"github.com/joho/godotenv"
+	"github.com/ty-e-boyd/gartholomew-gobot/bin/scrapers"
 )
 
 func init() {
